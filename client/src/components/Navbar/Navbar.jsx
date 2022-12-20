@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import {useSelector , useDispatch} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assests/Banner.png'
@@ -14,9 +14,28 @@ import decode from 'jwt-decode'
 
 export default function Navbar() {
     var user=useSelector((state)=> (state.currentUser));
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+  
     var dispatch=useDispatch();
     const navigate=useNavigate();
+    
+    console.log("Inner",windowSize)
 
+    function getWindowSize() {
+      const {innerWidth, innerHeight} = window;
+      return {innerWidth, innerHeight};
+    }
+    useEffect(() => {
+      function handleWindowResize() {
+        setWindowSize(getWindowSize());
+      }
+  
+      window.addEventListener('resize', handleWindowResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
     useEffect(() => {
       if(user!==null){
       var gettoken=user.token;
@@ -73,9 +92,11 @@ export default function Navbar() {
         <Link to="/" className='nav-item nav-btn'>For Teams</Link>
         
         <form>
-           <input type="text" placeholder='Search...' />
+           {!(windowSize.innerWidth< 600 )?<input type="text" placeholder='Search...' />:null}
            <img src={search} height='20' className='search-icon' alt="search" />
+   
         </form>
+        
         {user===null ?
         <Link to="/Auth" className='nav-item nav-links'>Log in</Link> :
         <>
