@@ -6,7 +6,7 @@ import Globe from '../../assests/Globe.jpg'
 
 export default function LeftSideBar() {
   return (
-   <div className='left-sidebar'>
+   <div className='left-sidebar' id="sidecontainer">
    <nav className='side-nav'>
        <NavLink to='/Home' className='side-nav-links' activeclassname='active'>
            <p>Home</p>

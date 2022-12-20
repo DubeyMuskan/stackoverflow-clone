@@ -3,7 +3,9 @@ import { useEffect } from 'react'
 import {useSelector , useDispatch} from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assests/Banner.png'
+import menu from '../../assests/menu.png'
 import search from '../../assests/searchengin.svg'
+import favicon from '../../assests/favicon.png'
 import Avatar from '../Avatar/Avatar'
 import Button from '../Button/Button'
 import { currentUser } from '../../actions/currentUser'
@@ -34,16 +36,33 @@ export default function Navbar() {
       dispatch(currentUser(null));
       navigate('/');
     }
+    const addClassSideNav=()=>{
+      console.log("hello")
+      const element=document.getElementById("sidecontainer")
+      if (element.classList.contains('when-open')) {
+        element.classList.remove('when-open');
+    }else
+    {
+     element.classList.add("when-open")
+    }
+      
+    }
 
   return (
     <nav className='main-nav'>
       <div className='navbar'>
-        <Link to="/Home" className='nav-item nav-logo'>
-            <img height={40} src={logo} alt="logo" />
+      {/* <div  >
+      
+      </div> */}
+        <Link to="/Home" className='nav-item nav-logo logo-container'>
+        <img height={20} onClick={addClassSideNav} src={menu} alt="menu" className='menu-bar' style={{marginRight:"20px"}}/>
+            <img height={40} src={logo} alt="logo" className='big-logo'/> 
+            <img height={40} src={favicon} alt="logo" className='small-logo'/>      
         </Link>
         <Link to="/" className='nav-item nav-btn'>About</Link>
         <Link to="/" className='nav-item nav-btn'>Products</Link>
         <Link to="/" className='nav-item nav-btn'>For Teams</Link>
+        
         <form>
            <input type="text" placeholder='Search...' />
            <img src={search} height='20' className='search-icon' alt="search" />
@@ -55,6 +74,7 @@ export default function Navbar() {
            <button className='nav-item nav-links' onClick={handleLogOut}>Log out</button>
         </>
     }
+       
       </div>
     </nav>
   )
