@@ -44,25 +44,30 @@
     background-color: rgb(225, 225, 225);
     border-right: solid 3px #ef8236;
 }
-.when-open{
-    /* position: sticky;
-    left:-164px;
-    top:0;
-    
-	height: 0;  */
-    display: none;
-	opacity: 0;
-	-webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-	transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
-}
+
 @media only screen and (max-width: 600px) {
   
- 
+     .hide-side{
+        display: none;
+    }
+    .when-open{
+        /* position: sticky;
+        left:-164px;
+        top:0;
+        
+        height: 0;  */
+        display: none;
+        opacity: 0;
+        -webkit-transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+        transition: opacity 0.5s, width 0.1s 0.5s, height 0.1s 0.5s;
+    }
    }
    @media only screen and (min-width: 992px) {
      
  
  }
  @media only screen and (min-width: 600px) and (max-width:992px) {
-     
+    /* .left-sidebar{
+        display: none;
+    } */
  }

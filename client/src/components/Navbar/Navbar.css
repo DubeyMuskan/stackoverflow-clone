@@ -49,7 +49,7 @@
     display: flex;
 }
 .navbar form input{
-    min-width: 85%;
+    min-width:75%;
     position: absolute;
     margin: 0;
     padding: 10px 10px 10px 28px;
@@ -90,6 +90,15 @@
     width: 100vh;
     justify-content: space-between;
    }
+   /* .navbar form input{
+    min-width:30vw;
+    position: absolute;
+    margin: 0;
+    padding: 10px 10px 10px 28px;
+    font-size: 13px;
+    border: solid 1px black;
+    border-radius: 3px;
+} */
 
   }
   @media only screen and (min-width: 992px) {

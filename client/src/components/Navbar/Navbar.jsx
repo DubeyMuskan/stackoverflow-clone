@@ -38,11 +38,20 @@ export default function Navbar() {
     }
     const addClassSideNav=()=>{
       console.log("hello")
+
       const element=document.getElementById("sidecontainer")
-      if (element.classList.contains('when-open')) {
+      if(element.classList.contains('hide-side'))
+      {
+        element.classList.remove('hide-side');
+        return
+      }
+      
+      if (element.classList.contains('when-open') ) {
         element.classList.remove('when-open');
+        element.classList.remove('hide-side');
     }else
     {
+    
      element.classList.add("when-open")
     }
       

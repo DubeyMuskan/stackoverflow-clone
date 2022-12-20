@@ -107,7 +107,7 @@
     .main-bar-header{
         width: 100vw;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-start;
         margin-right: 100px;
        }
      
